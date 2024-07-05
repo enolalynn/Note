@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NoteItemClickList
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
-            if(resultCode == 123 && data != null){
+            if(requestCode == 123 && data != null){
                 //add new note
 
                 Note note;
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements NoteItemClickList
                 noteDao.addNote(note);
                 refreshNotes();
                 Toast.makeText(this, "Note saved!", Toast.LENGTH_SHORT).show();
-            } else if (resultCode == 234) {
+            } else if (requestCode == 234) {
                 //update existing note
                 if(data != null){
                     Note note;
